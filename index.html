@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>circular progress bar</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js" i></script>
+
+
+ 
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="card">
+            <div class="circle">
+                <div class="bar"></div>
+                <div class="box"><span></span></div>
+            </div>
+
+            <div class="text">HTML AND CSS</div>
+
+        </div>
+        <div class="card js">
+            <div class="circle">
+                <div class="bar"></div>
+                <div class="box"><span></span></div>
+            </div>
+
+            <div class="text">JAVASCRIPT</div>
+            
+        </div>
+        <div class="card bootstrap">
+            <div class="circle">
+                <div class="bar"></div>
+                <div class="box"><span></span></div>
+            </div>
+
+            <div class="text">BOOTSTRAP</div>
+            
+        </div>
+    </div>
+
+
+    <script>
+        let options = {
+          startAngle: -1.55,
+          value: 0.85,
+          size: 150,
+          fill: {
+            gradient: ['#000428', '#004e92']
+          }
+        }
+        $('.circle .bar').circleProgress(options).on('circle-animation-progress',function(event, progress, stepValue){ 
+          $(this).parent().find("span").text(String(stepValue.toFixed(2).substr(2)) + "%");
+        });
+        $(".js .bar").circleProgress({
+          value:0.70
+        })
+        $(".bootstrap .bar").circleProgress({
+          value:0.60
+        })
+      </script>
+
+</body>
+</html>
